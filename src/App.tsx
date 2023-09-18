@@ -1,8 +1,8 @@
 import React from "react";
-import Header from "./components/Header";
 import { Routes, Route } from "react-router-dom";
 import Catalog from "./pages/Catalog";
 import Cart from "./pages/Cart";
+import Header from "./components/Header";
 
 function App() {
   return (

@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { CartType } from "../types/product";
+import "./Header.css";
 
 const Header: React.FC = () => {
   const cart = useSelector((state: { cart: CartType }) => state);

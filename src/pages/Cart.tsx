@@ -11,6 +11,7 @@ const Cart: React.FC = () => {
   //   });
   return (
     <div className='page'>
+      <h2>Корзина</h2>
       {state.cart.items ? (
         state.cart.items.map((i) => (
           <CartElement id={i.id} name={i.name} price={i.price} />

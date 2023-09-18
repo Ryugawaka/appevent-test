@@ -1,0 +1,35 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 20px;
+  border: 1px solid gray;
+  border-radius: 10px;
+  width: 20%;
+  height: 50px;
+  margin: 0 auto;
+  padding: 5px 15px;
+  background-color: rgb(223, 223, 223);
+}
+.header__item {
+  cursor: pointer;
+  height: fit-content;
+  padding: 10px 25px;
+  border-radius: 10px;
+  background-color: none;
+  border: 1px solid gray;
+}
+.header__item:hover {
+  background-color: rgb(42, 42, 43);
+  color: white;
+}
+.cart-amount {
+  position: absolute;
+  top: -26px;
+  right: -12px;
+  background-color: brown;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 50%;
+}

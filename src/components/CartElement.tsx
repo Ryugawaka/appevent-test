@@ -1,4 +1,5 @@
 import React from "react";
+import "./CartElement.css";
 
 type CartElementProps = {
   name: string;
@@ -11,7 +12,7 @@ const CartElement: React.FC<CartElementProps> = (props) => {
   return (
     <div className='cart-element'>
       <p>{name}</p>
-      <p>{price}</p>
+      <p>{price} ₽</p>
     </div>
   );
 };
