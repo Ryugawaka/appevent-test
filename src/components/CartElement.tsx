@@ -5,14 +5,18 @@ type CartElementProps = {
   name: string;
   price: number;
   id: number;
+  onClick: () => void;
 };
 
 const CartElement: React.FC<CartElementProps> = (props) => {
-  const { name, price, id } = props;
+  const { name, price, id, onClick } = props;
   return (
     <div className='cart-element'>
       <p>{name}</p>
-      <p>{price} ₽</p>
+      <p>{price}₽</p>
+      <button className='cart-delete' onClick={onClick}>
+        Удалить
+      </button>
     </div>
   );
 };

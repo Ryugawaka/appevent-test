@@ -1,10 +1,10 @@
 import { CartType, ProductResponse } from "./../types/product";
 import { AnyAction, configureStore } from "@reduxjs/toolkit";
 
-const initialCart = {
-  amount: 0,
-  items: undefined,
-};
+// проверяем есть ли в локалсторадже корзина, если нет создаем пустую
+const initialCart = localStorage.getItem("cart")
+  ? JSON.parse(localStorage.getItem("cart")!)
+  : { amount: 0, items: [] };
 
 const productsReducer = (
   state: ProductResponse = { items: [] },
@@ -20,6 +20,7 @@ const productsReducer = (
 
 const cartReducer = (state: CartType = initialCart, action: AnyAction) => {
   switch (action.type) {
+    // добавление в корзину
     case "ADD_ITEM":
       return {
         amount: state.amount + 1,
@@ -27,13 +28,16 @@ const cartReducer = (state: CartType = initialCart, action: AnyAction) => {
           ? [...state.items, action.payload.product]
           : [action.payload.product],
       };
+    //   удаление из корзины
     case "REMOVE_ITEM":
       return {
         amount: state.amount - 1,
-        items: state.items?.filter((item) => item !== action.payload.product),
+        items: state.items?.filter(
+          (item) => item.id !== action.payload.product.id
+        ),
       };
     default:
-      return initialCart;
+      return state;
   }
 };
 
