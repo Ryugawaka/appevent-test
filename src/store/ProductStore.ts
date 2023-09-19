@@ -32,7 +32,7 @@ const cartReducer = (state: CartType = initialCart, action: AnyAction) => {
       return {
         amount: state.amount - 1,
         items: state.items?.filter(
-          (item) => item.id !== action.payload.product.id
+          (item, index) => index !== action.payload.index
         ),
       };
     default:

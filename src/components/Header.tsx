@@ -13,7 +13,7 @@ const Header: React.FC = () => {
       <Link to={"/cart"}>
         <div style={{ position: "relative" }}>
           <button className='header__item'>Корзина</button>
-          <p className='cart-amount'>{cart.cart.amount}</p>
+          <p className='header__cart-amount'>{cart.cart.amount}</p>
         </div>
       </Link>
     </div>

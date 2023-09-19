@@ -12,12 +12,12 @@ const ProductCard: React.FC<ProductCardProps> = (props) => {
   const { image, price, name, id, onClick } = props;
   return (
     <div className='product'>
-      <img src={image} alt='product' className='product-image' />
-      <div className='product-info'>
+      <img src={image} alt='product' className='product__image' />
+      <div className='product__info'>
         <p>{name}</p>
         <p>Цена: {price} ₽</p>
       </div>
-      <button className='product-cart-button' onClick={() => onClick(id)}>
+      <button className='product__cart-button' onClick={() => onClick(id)}>
         Добавить в корзину
       </button>
     </div>
