@@ -8,13 +8,14 @@ const url = "https://appevent.ru/dev/task1/catalog";
 const Catalog: React.FC = () => {
   const state = useSelector((state: { products: ProductResponse }) => state);
   const dispatch = useDispatch();
-  // функция добавления продукта в корзину
+
   const addToCart = (product: Product) => {
     dispatch({
       type: "ADD_ITEM",
       payload: { product },
     });
   };
+
   // запрос данных
   async function getProducts(): Promise<ProductResponse> {
     const response = await fetch(url);
@@ -25,6 +26,7 @@ const Catalog: React.FC = () => {
   const getData = async () => {
     dispatch({ type: "GET_PRODUCTS", payload: await getProducts() });
   };
+
   // при рендере страницы запрашиваем данные
   useEffect(() => {
     getData();

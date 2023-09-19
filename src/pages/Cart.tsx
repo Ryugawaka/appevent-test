@@ -18,8 +18,8 @@ const Cart: React.FC = () => {
   return (
     <div className='page'>
       <h2>Корзина</h2>
-      {state.cart.items ? (
-        state.cart.items.map((i) => (
+      {state.cart.items?.length! > 0 ? (
+        state.cart.items!.map((i) => (
           <CartElement
             key={i.id}
             id={i.id}
@@ -31,7 +31,7 @@ const Cart: React.FC = () => {
       ) : (
         <p>Корзина пуста</p>
       )}
-      {totalPrice && <p>Общая стоимость: {totalPrice} ₽</p>}
+      {totalPrice! > 0 && <p>Общая стоимость: {totalPrice} ₽</p>}
     </div>
   );
 };

@@ -20,7 +20,6 @@ const productsReducer = (
 
 const cartReducer = (state: CartType = initialCart, action: AnyAction) => {
   switch (action.type) {
-    // добавление в корзину
     case "ADD_ITEM":
       return {
         amount: state.amount + 1,
@@ -28,7 +27,7 @@ const cartReducer = (state: CartType = initialCart, action: AnyAction) => {
           ? [...state.items, action.payload.product]
           : [action.payload.product],
       };
-    //   удаление из корзины
+
     case "REMOVE_ITEM":
       return {
         amount: state.amount - 1,

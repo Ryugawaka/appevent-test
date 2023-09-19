@@ -1,5 +1,4 @@
 import React from "react";
-import "./CartElement.css";
 
 type CartElementProps = {
   name: string;
