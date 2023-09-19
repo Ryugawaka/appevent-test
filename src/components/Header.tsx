@@ -5,6 +5,7 @@ import { CartType } from "../types/product";
 
 const Header: React.FC = () => {
   const cart = useSelector((state: { cart: CartType }) => state);
+  const cartText = cart.cart.amount > 0 ? "Оформить заказ" : "Корзина";
   return (
     <div className='header'>
       <Link to={"/"}>
@@ -12,7 +13,7 @@ const Header: React.FC = () => {
       </Link>
       <Link to={"/cart"}>
         <div style={{ position: "relative" }}>
-          <button className='header__item'>Корзина</button>
+          <button className='header__item'>{cartText}</button>
           <p className='header__cart-amount'>{cart.cart.amount}</p>
         </div>
       </Link>

@@ -13,7 +13,7 @@ const CartElement: React.FC<CartElementProps> = (props) => {
     <div className='cart-element'>
       <p>{name}</p>
       <p>{price}₽</p>
-      <button className='cart-delete' onClick={onClick}>
+      <button className='cart-element__delete-button' onClick={onClick}>
         Удалить
       </button>
     </div>

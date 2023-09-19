@@ -11,13 +11,17 @@
   margin-bottom: 10px;
 }
 
-.cart-delete {
-  color: white;
+.cart-element__delete-button {
+  color: black;
   font-weight: 700;
   justify-self: center;
   width: fit-content;
-  background-color: rgb(109, 8, 8);
+  background-color: white(109, 8, 8);
   border: 1px solid black;
   padding: 10px 15px;
   border-radius: 30px;
+}
+.cart-element__delete-button:hover {
+  color: white;
+  background-color: rgb(109, 8, 8);
 }
