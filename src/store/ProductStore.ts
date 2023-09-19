@@ -6,6 +6,24 @@ const initialCart = localStorage.getItem("cart")
   ? JSON.parse(localStorage.getItem("cart")!)
   : { amount: 0, items: [] };
 
+const addToCart = (state: CartType, action: AnyAction) => {
+  return {
+    amount: state.amount + 1,
+    items: state.items
+      ? [...state.items, action.payload.product]
+      : [action.payload.product],
+  };
+};
+
+const removeFromCart = (state: CartType, action: AnyAction) => {
+  return {
+    amount: state.amount - 1,
+    items: state.items?.filter(
+      (product) => product.id !== action.payload.product.id
+    ),
+  };
+};
+
 const productsReducer = (
   state: ProductResponse = { items: [] },
   action: AnyAction
@@ -22,20 +40,10 @@ const cartReducer = (state: CartType = initialCart, action: AnyAction) => {
   console.log(action.payload);
   switch (action.type) {
     case "ADD_ITEM":
-      return {
-        amount: state.amount + 1,
-        items: state.items
-          ? [...state.items, action.payload.product]
-          : [action.payload.product],
-      };
+      return addToCart(state, action);
 
     case "REMOVE_ITEM":
-      return {
-        amount: state.amount - 1,
-        items: state.items?.filter(
-          (product) => product.id !== action.payload.product.id
-        ),
-      };
+      return removeFromCart(state, action);
     default:
       return state;
   }
