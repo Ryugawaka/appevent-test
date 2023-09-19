@@ -21,7 +21,7 @@ const Cart: React.FC = () => {
       {state.cart.items?.length! > 0 ? (
         state.cart.items!.map((i, index) => (
           <CartElement
-            key={i.id}
+            key={index}
             id={i.id}
             name={i.name}
             price={i.price}
