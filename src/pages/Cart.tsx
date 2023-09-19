@@ -11,21 +11,21 @@ const Cart: React.FC = () => {
     return prev + next.price;
   }, 0);
   // функция удаления элемента из корзины
-  const handleDeleteItem = (index: number) => {
-    dispatch({ type: "REMOVE_ITEM", payload: { index } });
+  const handleDeleteItem = (product: Product) => {
+    dispatch({ type: "REMOVE_ITEM", payload: { product } });
   };
 
   return (
     <div className='page'>
       <h2>Корзина</h2>
       {state.cart.items?.length! > 0 ? (
-        state.cart.items!.map((i, index) => (
+        state.cart.items!.map((i) => (
           <CartElement
-            key={index}
+            key={i.id}
             id={i.id}
             name={i.name}
             price={i.price}
-            onClick={() => handleDeleteItem(index)}
+            onClick={() => handleDeleteItem(i)}
           />
         ))
       ) : (

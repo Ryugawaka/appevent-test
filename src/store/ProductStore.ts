@@ -18,13 +18,8 @@ const productsReducer = (
   }
 };
 
-const removeItemFromArr = (arr: Product[], index: number) => {
-  const newArr = arr.slice();
-  newArr.splice(index, 1);
-  return newArr;
-};
-
 const cartReducer = (state: CartType = initialCart, action: AnyAction) => {
+  console.log(action.payload);
   switch (action.type) {
     case "ADD_ITEM":
       return {
@@ -37,7 +32,9 @@ const cartReducer = (state: CartType = initialCart, action: AnyAction) => {
     case "REMOVE_ITEM":
       return {
         amount: state.amount - 1,
-        items: removeItemFromArr(state.items!, action.payload.index),
+        items: state.items?.filter(
+          (product) => product.id !== action.payload.product.id
+        ),
       };
     default:
       return state;

@@ -12,7 +12,13 @@ const Catalog: React.FC = () => {
   const addToCart = (product: Product) => {
     dispatch({
       type: "ADD_ITEM",
-      payload: { product },
+      payload: {
+        product: {
+          name: product.name,
+          id: product.id + Date.now(),
+          price: product.price,
+        },
+      },
     });
   };
 
